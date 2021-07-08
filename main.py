@@ -203,7 +203,7 @@ class Piece(object):
         self.y = row
         self.shape = shape
         self.color = (129,200,128)
-        self.rotation = 0  # number from 0-3
+        self.rotation = 0  
  
  
 def create_grid(locked_positions={}):
@@ -277,7 +277,6 @@ def draw_grid(surface, row, col):
  
  
 def clear_rows(grid, locked):
-    # need to see if row is clear the shift every other row above down one
  
     inc = 0
     for i in range(len(grid)-1,-1,-1):
@@ -319,10 +318,6 @@ def draw_next_shape(shape, surface):
 def draw_window(surface):
     surface.fill((0,0,32))
     # Tetris Title
-    #font = pygame.font.SysFont("comicsans", 48)
-    #label = font.render("TETRIS", 1, (255,255,255))
- 
-    #surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
  
     for i in range(len(grid)):
         for j in range(len(grid[i])):
@@ -395,7 +390,6 @@ def main():
                    while valid_space(current_piece, grid):
                        current_piece.y += 1
                    current_piece.y -= 1
-                   #print(convert_shape_format(current_piece))"""  # todo fix
  
  
         shape_pos = convert_shape_format(current_piece)
